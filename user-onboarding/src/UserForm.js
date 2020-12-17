@@ -15,8 +15,8 @@ export default function UserForm(props) {
     }
     
     return (
-        <form onSubmit={onSubmit}>
-
+        <form onSubmit={onSubmit} className='form container'>
+        
          <div className='errors'>
           <div>{errors.username}</div>
           <div>{errors.email}</div>
@@ -24,8 +24,8 @@ export default function UserForm(props) {
           <div>{errors.termOfService}</div>
         </div>
       
-        <div>
-
+        <div className='container'>
+        
         <label>Name
           <input
             value={values.username}
@@ -34,7 +34,7 @@ export default function UserForm(props) {
             type='text'
           ></input>
         </label>
-        <label>Email
+        <label>Email 
             <input 
                 type='text' 
                 name='email' 
@@ -62,7 +62,7 @@ export default function UserForm(props) {
         <br></br>
         <br></br>
      
-        <button disabled={disabled}>submit</button>
+        <button id='submitBtn' disabled={disabled}>submit</button>
         </div>
         </form>
     )

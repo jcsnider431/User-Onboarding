@@ -1,7 +1,37 @@
-.App {
-  text-align: center;
+*{
+  /* border: 3px solid red; */
 }
 
+.App {
+  text-align: center;
+  width: 0% auto;
+  box-shadow: 10px 10px 8px 10px lightgrey;
+  background-color: whitesmoke;
+  border: 1px solid grey;
+  margin: 10%;
+  border-radius: 25px;
+
+}
+
+.container{
+  margin: 5%auto;
+  display: flex;
+  flex-direction: column;
+  border-radius: 25px;
+  text-align: left;
+  
+}
+input{
+  margin-left: 10%;
+}
+
+.card {
+  border: 1px solid lightgrey;
+  width: 50%;
+  box-shadow: 10px 10px 8px 10px lightgrey;
+  border-radius: 25px;
+
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
