@@ -1,3 +1,4 @@
+/*global cy*/
 describe('User App', () => {
 
     beforeEach(() => {
@@ -9,7 +10,7 @@ describe('User App', () => {
     const passwordInput = () => cy.get('input[name="password"')
     const submitBtn = () => cy.get('button[id="submitBtn"]')
     const checkboxInput = () => cy.get('input[type="checkbox"]')
-
+    
 
     it('Do elements exist', () => {
         nameInput().should('exist')
@@ -20,7 +21,7 @@ describe('User App', () => {
         
      })
 
-     describe('Does name work can it be typed in or check and submited', () => {
+     describe('Does everything work can it be typed in or check and submited', () => {
          it('Can name be typed in',() => {
              nameInput()
                 .should('have.value', '')
@@ -51,7 +52,32 @@ describe('User App', () => {
             checkboxInput().check()
             submitBtn().click()
          })
+         it('Does a submit an Form exist',() => {
+            nameInput().type('Chase')
+            emailInput().type('blah@email.com')
+            passwordInput().type('password')
+            checkboxInput().should('not.be.checked')
+            checkboxInput().check().should('be.checked')
+            submitBtn().click()
+            checkboxInput().uncheck().should('not.be.checked')
+            cy.contains(/Chase/).should('not.exist')
+            cy.contains(/blah@email.com/).should('exist')
+            cy.contains(/password/).should('exist')
+            
+             
+         })
          
+         it('Do errors work', () => {
+             
+             nameInput().type('C')
+             emailInput().type('blah')
+             passwordInput().type('pa')
+             checkboxInput().should('not.be.checked')
+             checkboxInput().check().should('be.checked')
+             
+            
+             
+         })
 
 
      })

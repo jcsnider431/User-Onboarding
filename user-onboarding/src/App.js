@@ -19,6 +19,7 @@ const initialFormErrors = {
   username: '',
   email: '',
   password: '',
+  
 }
 
 const initialUser = [];
@@ -64,7 +65,7 @@ function App() {
       .catch((err)=>{
         setFormErrors({
           ...formErrors,
-          [name]: '',
+          [name]: err.errors[0],
         })
       })
       setFormValues({
@@ -78,7 +79,7 @@ function App() {
       username: formValues.username.trim(),
       email: formValues.email.trim(),
       password: formValues.password.trim(),
-      termsOfService: [].filter((service)=> formValues[service])
+      // termsOfService: [].filter((service)=> formValues[service])
     }
     postNewUser(newUser)
   }
